@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FitnessApp1.Views.ChallengesPage"
+             xmlns:controls="clr-namespace:FitnessApp1.Controls"
+             xmlns:converters="clr-namespace:FitnessApp1.Converters"
+             xmlns:helpers="clr-namespace:FitnessApp1.Helpers"
+             xmlns:viewmodels="clr-namespace:FitnessApp1.ViewModels"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:DataType="viewmodels:ChallengesViewModel"
+             BackgroundColor="{StaticResource Background}"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.BindingContext>
+        <viewmodels:ChallengesViewModel />
+    </ContentPage.BindingContext>
+    <xct:TabView
+        IsSwipeEnabled="False"
+        TabStripBackgroundColor="{StaticResource CardBackground}"
+        TabStripHeight="90"
+        TabStripPlacement="Top">
+        <xct:TabViewItem
+            ControlTemplate="{StaticResource TabItemTemplate}"
+            Style="{StaticResource TabViewItemStyle}"
+            Text="Active">
+
+            <xct:TabViewItem.Icon>
+                <FontImageSource
+                    FontFamily="FASolid"
+                    Glyph="{x:Static helpers:FAIcons.Trophy}"
+                    Size="42"
+                    Color="{StaticResource TextSecondary}" />
+            </xct:TabViewItem.Icon>
+            <xct:TabViewItem.IconSelected>
+                <FontImageSource
+                    FontFamily="FASolid"
+                    Glyph="{x:Static helpers:FAIcons.Trophy}"
+                    Size="42"
+                    Color="{StaticResource Accent}" />
+            </xct:TabViewItem.IconSelected>
+            <controls:ActiveChallengesView Margin="0,42,0,0"/>
+        </xct:TabViewItem>
+        <xct:TabViewItem
+            ControlTemplate="{StaticResource TabItemTemplate}"
+            Style="{StaticResource TabViewItemStyle}"
+            Text="Upcoming">
+            <xct:TabViewItem.Icon>
+                <FontImageSource
+                    FontFamily="FASolid"
+                    Glyph="{x:Static helpers:FAIcons.AngleDoubleUp}"
+                    Size="42"
+                    Color="{StaticResource TextSecondary}" />
+            </xct:TabViewItem.Icon>
+            <xct:TabViewItem.IconSelected>
+                <FontImageSource
+                    FontFamily="FASolid"
+                    Glyph="{x:Static helpers:FAIcons.AngleDoubleUp}"
+                    Size="42"
+                    Color="{StaticResource Accent}" />
+            </xct:TabViewItem.IconSelected>
+            <controls:ActiveChallengesView Margin="0,42,0,0"/>
+        </xct:TabViewItem>
+        <xct:TabViewItem
+            ControlTemplate="{StaticResource TabItemTemplate}"
+            Style="{StaticResource TabViewItemStyle}"
+            Text="Completed">
+            <xct:TabViewItem.Icon>
+                <FontImageSource
+                    FontFamily="FASolid"
+                    Glyph="{x:Static helpers:FAIcons.Award}"
+                    Size="48"
+                    Color="{StaticResource TextSecondary}" />
+            </xct:TabViewItem.Icon>
+            <xct:TabViewItem.IconSelected>
+                <FontImageSource
+                    FontFamily="FASolid"
+                    Glyph="{x:Static helpers:FAIcons.Award}"
+                    Size="48"
+                    Color="{StaticResource Accent}" />
+            </xct:TabViewItem.IconSelected>
+            <controls:CompletedChallengesControl Margin="0,42,0,0"/>
+        </xct:TabViewItem>
+    </xct:TabView>
+</ContentPage>

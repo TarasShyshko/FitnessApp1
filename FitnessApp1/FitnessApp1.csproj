@@ -1,0 +1,60 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+	<PropertyGroup>
+		<LangVersion>preview</LangVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Services\**" />
+	  <EmbeddedResource Remove="Services\**" />
+	  <None Remove="Services\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="Resources\Fonts\FABrands.otf" />
+		<EmbeddedResource Include="Resources\Fonts\FARegular.otf" />
+		<EmbeddedResource Include="Resources\Fonts\FASolid.otf" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MonkeyCache.FileStore" Version="1.6.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
+    <PackageReference Include="Resizetizer.NT" Version="0.3.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Sharpnado.MaterialFrame" Version="1.3.0" />
+    <PackageReference Include="Sharpnado.Tabs" Version="2.2.0" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.5" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2515" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />  
+    <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<SharedImage Include="Resources\Images\medal.png" BaseSize="86,86" />
+		<SharedImage Include="Resources\Images\ally.png" BaseSize="80,80" />
+		<SharedImage Include="Resources\Images\alex.png" BaseSize="80,80" />
+		<SharedImage Include="Resources\Images\hannah.png" BaseSize="80,80" />
+		<SharedImage Include="Resources\Images\james.jpg" BaseSize="100,100" />
+		<SharedImage Include="Resources\Images\collection1.png" BaseSize="431,245" />
+		<SharedImage Include="Resources\Images\collection2.png" BaseSize="431,245" />
+		<SharedImage Include="Resources\Images\program1.png" BaseSize="431,245" />
+		<SharedImage Include="Resources\Images\program2.png" BaseSize="431,245" />
+		<SharedImage Include="Resources\Images\workout1.png" BaseSize="585,252" />
+		<SharedImage Include="Resources\Images\workout2.png" BaseSize="585,252" />
+		<SharedImage Include="Resources\Images\workout3.png" BaseSize="585,252" />
+	</ItemGroup>
+	
+  <ItemGroup>
+    <EmbeddedResource Update="Views\CollectionDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+	</EmbeddedResource>
+  </ItemGroup>
+</Project>

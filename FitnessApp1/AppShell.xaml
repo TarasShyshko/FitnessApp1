@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:profile="clr-namespace:FitnessApp.Views.Profile"
+       xmlns:helpers="clr-namespace:FitnessApp.Helpers"
+       xmlns:local="clr-namespace:FitnessApp1.Views"
+       Title="FitnessApp1"
+       x:Class="FitnessApp1.AppShell">
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="#FFFEFF" />
+                <Setter Property="Shell.ForegroundColor" Value="Black" />
+                <Setter Property="Shell.TitleColor" Value="Black" />
+                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="#B4B4BA" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource TabBarBackground}" />
+                <!--<Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource TabIconSelected}" />-->
+                <Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource TabIconUnselected}" />
+                <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource TabIconSelected}" />
+            </Style>
+            <Style BasedOn="{StaticResource BaseStyle}" TargetType="TabBar" />
+            <Style BasedOn="{StaticResource BaseStyle}" TargetType="FlyoutItem" />
+
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <TabBar Route="MainTabs">
+        <Tab Title="Featured"
+             Route="FeaturedPage"
+             Shell.NavBarIsVisible="False"
+             >
+            <Tab.Icon>
+                <FontImageSource FontFamily="FASolid"
+                                     Glyph="{x:Static helpers:FAIcons.Star}"/>
+            </Tab.Icon>
+            <ShellContent
+                ContentTemplate="{DataTemplate local:FeaturedPage}"/>
+        </Tab>
+        <Tab Title="Challenges"
+             Route="ChallengesPage"
+             Shell.NavBarIsVisible="False"
+             >
+            <Tab.Icon>
+                <FontImageSource FontFamily="FASolid"
+                                     Glyph="{x:Static helpers:FAIcons.Trophy}"/>
+            </Tab.Icon>
+            <ShellContent
+                ContentTemplate="{DataTemplate local:ChallengesPage}"/>
+        </Tab>
+        <Tab Title="Classes"
+             Route="ClassesPage"
+             Shell.NavBarIsVisible="False"
+             >
+            <Tab.Icon>
+                <FontImageSource FontFamily="FARegular"
+                                     Glyph="{x:Static helpers:FAIcons.PlayCircle}"/>
+            </Tab.Icon>
+            <ShellContent
+                ContentTemplate="{DataTemplate local:ClassesPage}"/>
+        </Tab>
+        <Tab Title="Profile"
+             Route="ProfilePage"
+             Shell.NavBarIsVisible="True"             >
+            <Tab.Icon>
+                <FontImageSource FontFamily="FASolid"
+                                     Glyph="{x:Static helpers:FAIcons.User}"/>
+            </Tab.Icon>
+
+            <ShellContent
+                Title="OVERVIEW"
+                ContentTemplate="{DataTemplate profile:ProfileOverviewPage}"/>
+            <ShellContent
+                Title="WORKOUTS"
+                ContentTemplate="{DataTemplate profile:ProfileWorkoutsPage}"/>
+            <ShellContent
+                Title="ACHIEVEMENTS"
+                ContentTemplate="{DataTemplate profile:ProfileAchievementsPage}"/>
+        </Tab>
+        <Tab Title="More"
+             Route="MorePage"
+             Shell.NavBarIsVisible="False"
+             >
+            <Tab.Icon>
+                <FontImageSource FontFamily="FASolid"
+                                     Glyph="{x:Static helpers:FAIcons.GripLines}"/>
+            </Tab.Icon>
+            <ShellContent
+                ContentTemplate="{DataTemplate local:MorePage}"/>
+        </Tab>
+    </TabBar>
+
+
+
+</Shell>
